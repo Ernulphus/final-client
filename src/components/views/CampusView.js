@@ -20,7 +20,7 @@ const CampusView = (props) => {
       <h1>{campus.name}</h1>
       <h2>{campus.address}</h2>
       <p>{campus.description}</p>
-      {studentInfo} // students or message
+      {studentInfo}
     </div>
   )
 };
