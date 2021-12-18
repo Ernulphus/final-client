@@ -13,7 +13,7 @@ const AllCampusesView = (props) => {
           <h1>{campus.name}</h1>
         </Link>
         <p>{campus.description}</p>
-        <button onClick={() => deleteCampus(campus.id)}>Delete</button>
+        <button onClick={() => deleteCampus(campus.id)}>X</button>
       </div>
     ))}</div>)
     : (<div>There are no campuses.</div>)
