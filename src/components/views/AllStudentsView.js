@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Bar from '../views/AppBarView';
 
 const AllStudentsView = (props) => {
   const {students, deleteStudent} = props;
@@ -13,9 +14,10 @@ const AllStudentsView = (props) => {
     </div>
     );
   }
-  
+
   return (
     <div>
+      <Bar/>
       {students.map((student) => {
         let name = student.firstname + " " + student.lastname;
         return (
