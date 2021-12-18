@@ -29,6 +29,7 @@ class EditCampusContainer extends Component {
         event.preventDefault();
 
         let campus = {
+            id: this.props.match.params.id,
             name: this.state.name,
             address: this.state.address,
             description: this.state.description
@@ -42,7 +43,7 @@ class EditCampusContainer extends Component {
           description: "",
           students: null,
           redirect: true,
-          redirectId: editCampus.id
+          redirectId: campus.id
         });
     }
 
