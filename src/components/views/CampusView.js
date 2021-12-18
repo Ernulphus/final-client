@@ -3,6 +3,7 @@
 const CampusView = (props) => {
   const {campus} = props;
 
+  // Ternary operator to decide whether to display students or a helpful message
   let studentInfo = ((campus.students.length)
     ? (<ul>
     {campus.students.map( student => {
@@ -19,7 +20,7 @@ const CampusView = (props) => {
       <h1>{campus.name}</h1>
       <h2>{campus.address}</h2>
       <p>{campus.description}</p>
-      {studentInfo}
+      {studentInfo} // students or message
     </div>
   )
 };
