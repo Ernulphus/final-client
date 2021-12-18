@@ -4,22 +4,25 @@ import Bar from '../views/AppBarView';
 
 const AllCampusesView = (props) => {
   const {campuses, deleteCampus} = props;
-  if (!props.allCampuses.length) {
-    return <div>There are no campuses.</div>;
-  }
+
+  // Ternary operator to display either list of schools or helpful message
+  let list = ((props.allCampuses.length)
+    ? (<div>{props.allCampuses.map((campus) => (
+      <div key={campus.id}>
+        <Link to={`/campus/${campus.id}`}>
+          <h1>{campus.name}</h1>
+        </Link>
+        <p>{campus.description}</p>
+        <button onClick={() => deleteCampus(campus.id)}>Delete</button>
+      </div>
+    ))}</div>)
+    : (<div>There are no campuses.</div>)
+  )
 
   return (
     <div>
       <Bar/>
-      {props.allCampuses.map((campus) => (
-        <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
-            <h1>{campus.name}</h1>
-          </Link>
-          <p>{campus.description}</p>
-          <button onClick={() => deleteCampus(campus.id)}>Delete</button>
-        </div>
-      ))}
+      {list}
       <Link to={`/newcampus`}>
         <button>Add New Campus</button>
       </Link>
