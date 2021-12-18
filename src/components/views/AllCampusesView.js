@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Bar from '../views/AppBarView';
 
 const AllCampusesView = (props) => {
+  const {campuses, deleteCampus} = props;
   if (!props.allCampuses.length) {
     return <div>There are no campuses.</div>;
   }
@@ -16,6 +17,7 @@ const AllCampusesView = (props) => {
             <h1>{campus.name}</h1>
           </Link>
           <p>{campus.description}</p>
+          <button onClick={() => deleteCampus(campus.id)}>Delete</button>
         </div>
       ))}
       <Link to={`/newcampus`}>
