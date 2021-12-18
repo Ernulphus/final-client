@@ -47,6 +47,7 @@ class EditStudentContainer extends Component {
           gpa: null,
           campusId: null,
           redirect: true,
+          redirectId: student.id,
         });
     }
 
@@ -56,7 +57,7 @@ class EditStudentContainer extends Component {
 
     render() {
         if(this.state.redirect) {
-          return (<Redirect to={`/students`}/>)
+          return (<Redirect to={`/student/${this.state.redirectId}`}/>)
         }
         return (
           <EditStudentView
