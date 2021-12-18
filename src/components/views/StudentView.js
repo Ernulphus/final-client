@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Bar from '../views/AppBarView';
 
 const StudentView = (props) => {
   const { student } = props;
@@ -10,6 +11,7 @@ const StudentView = (props) => {
 
   return (
     <div>
+      <Bar />
       <img src={student.imageURL}/>
       <h1>{student.firstname + " " + student.lastname}</h1>
       <h1>{student.email}</h1>
