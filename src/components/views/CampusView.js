@@ -21,8 +21,9 @@ const CampusView = (props) => {
       <img src={campus.imageURL}/>
       <h1>{campus.name}</h1>
       <h2>{campus.address}</h2>
-      <p>{campus.description}</p>
+      <p>ID: {campus.id}<br/>{campus.description}</p>
       {studentInfo}
+      <Link to={`/campus/${campus.id}/edit`}>Edit campus</Link>
     </div>
   )
 };

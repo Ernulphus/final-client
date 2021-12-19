@@ -17,6 +17,8 @@ const StudentView = (props) => {
       <h1>{student.email}</h1>
       {enrollment}
       <h2>GPA: {student.gpa}</h2>
+      <h2>ID: {student.id}</h2>
+      <Link to={`/student/${student.id}/edit`}>Edit profile</Link>
     </div>
   );
 
