@@ -1,6 +1,6 @@
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import Bar from '../views/AppBarView';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -37,7 +37,8 @@ const EditStudentView = (props) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.formContainer}>
+    <Bar />
+      <div className="formcontainer">
         <div className={classes.formTitle}>
           <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
           Edit Student

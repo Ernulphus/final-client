@@ -8,8 +8,8 @@ const AllCampusesView = (props) => {
   // Ternary operator to display either list of schools or helpful message
   let list = ((props.allCampuses.length)
     ? (<div>{props.allCampuses.map((campus) => (
-      <div key={campus.id}>
-        <Link to={`/campus/${campus.id}`}>
+      <div classname="campuses" key={campus.id}>
+        <Link classname="campuslink" to={`/campus/${campus.id}`}>
           <h1>{campus.name}</h1>
         </Link>
         <p>{campus.description}</p>
