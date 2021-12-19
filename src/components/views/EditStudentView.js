@@ -40,7 +40,8 @@ const EditStudentView = (props) => {
       <div className={classes.formContainer}>
         <div className={classes.formTitle}>
           <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-            Edit Student
+          Edit Student
+          <h5>Leave any field blank to keep it the same</h5>
           </Typography>
         </div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>

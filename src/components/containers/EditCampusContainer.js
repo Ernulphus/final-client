@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import EditCampusView from '../views/EditCampusView';
-import { editCampusThunk, fetchCampusThunk } from '../../store/thunks';
+import { editCampusThunk, fetchCampusThunk, editStudentThunk } from '../../store/thunks';
 
 
 class EditCampusContainer extends Component {
@@ -14,9 +14,11 @@ class EditCampusContainer extends Component {
           name: toEdit.name,
           address: toEdit.address,
           description: toEdit.description,
-          students: toEdit.students,
+          imageURL: toEdit.imageURL,
           redirect: false,
-          redirectId: toEdit.id
+          redirectId: toEdit.id,
+          addstudent: "",
+
         };
     }
 
@@ -33,15 +35,24 @@ class EditCampusContainer extends Component {
             id: this.props.match.params.id,
             name: this.state.name,
             address: this.state.address,
-            description: this.state.description
+            description: this.state.description,
+            imageURL: this.state.imageURL,
         };
 
         let editCampus = await this.props.editCampus(campus);
+
+        this.setState({"addstudent": this.state.addstudent.split(",")});
+
+        this.state.addstudent.forEach((char) => {
+          let studier = {id: char, campusId: campus.id};
+          let editStudent = this.props.editStudent(studier);
+        });
 
         this.setState({
           name: "",
           address: "",
           description: "",
+          imageURL: "",
           students: null,
           redirect: true,
           redirectId: campus.id
@@ -69,6 +80,7 @@ const mapDispatch = (dispatch) => {
     return({
         editCampus: (campus) => dispatch(editCampusThunk(campus)),
         fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
+        editStudent: (student) => dispatch(editStudentThunk(student)),
     })
 }
 

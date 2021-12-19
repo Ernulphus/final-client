@@ -39,7 +39,8 @@ const EditCampusView = (props) => {
       <div className={classes.formContainer}>
         <div className={classes.formTitle}>
           <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-            Edit Campus
+            Edit Campus<br/>
+            Leave any field blank to keep it the same
           </Typography>
         </div>
         <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
@@ -55,6 +56,16 @@ const EditCampusView = (props) => {
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
           <input type="text" name="description" onChange={(e) => handleChange(e)} />
+          <br/>
+          <br/>
+
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
+          <input type="text" name="imageURL" onChange={(e) => handleChange(e)} />
+          <br/>
+          <br/>
+
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>Add a student by ID: </label>
+          <input type="text" name="addstudent" onChange={(e) => handleChange(e)} />
           <br/>
           <br/>
 
