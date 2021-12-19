@@ -43,7 +43,7 @@ class EditCampusContainer extends Component {
 
         this.setState({"addstudent": this.state.addstudent.split(",")});
 
-        this.state.addstudent.forEach((char) => {
+        await this.state.addstudent.forEach((char) => {
           let studier = {id: char, campusId: campus.id};
           let editStudent = this.props.editStudent(studier);
         });
