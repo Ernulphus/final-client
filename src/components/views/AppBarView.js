@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   appBar:{
     backgroundColor: '#283618',
     shadows: ['none'],
+    marginBottom: '2vh',
   },
   links:{
     textDecoration: 'none',
