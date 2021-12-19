@@ -1,7 +1,7 @@
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 import { Link } from 'react-router-dom';
@@ -16,16 +16,18 @@ const useStyles = makeStyles(theme => ({
     fontType: 'bold',
     fontFamily: 'Courier, sans-serif',
     fontSize: '35px',
-    color: '#CDDC39'
+    color: '#808c58'
   },
   appBar:{
-    backgroundColor: '#11153e',
+    backgroundColor: '#283618',
     shadows: ['none'],
   },
   links:{
     textDecoration: 'none',
+  },
+  Button:{
+    backgroundColor: '#bc6c25',
   }
-
 }));
 
 const Bar = () => {
@@ -37,22 +39,16 @@ const Bar = () => {
         CRUD App
       </Typography>
 
-      <Link className={classes.links} to={'/'} >
-        <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+      <Link className="headerlinks" to={'/'} style={{marginRight: '10px'}}>
           Home
-        </Button>
       </Link>
 
-      <Link className={classes.links} to={'/campuses'} >
-        <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+      <Link className="headerlinks" to={'/campuses'} style={{marginRight: '10px'}}>
           All Campuses
-        </Button>
       </Link>
 
-      <Link className={classes.links} to={'/students'} >
-        <Button variant="contained" color="primary">
+      <Link className="headerlinks" to={'/students'} >
           All Students
-        </Button>
       </Link>
     </Toolbar>
     </AppBar>

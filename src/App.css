@@ -1,8 +1,33 @@
 .App {
-  background-color: #fcb6bb;
+  background-color: #fefae0;
   min-height: 100vh;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+/* Make links in AppBar look nice */
+.headerlinks {
+  background-color: #bc6c25;
+  padding: 2vh;
+  border-radius: 15vw;
+  color: #fefae0;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.headerlinks:hover {
+  background-color: #ac4c05;
+}
+
+/* Fix icon size */
+img {
+  width: 10vw;
+}
+
+button {
+  border: none;
+  padding: 1vh;
+  border-radius: 15wv;
 }
