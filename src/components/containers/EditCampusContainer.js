@@ -18,7 +18,7 @@ class EditCampusContainer extends Component {
           redirect: false,
           redirectId: toEdit.id,
           addstudent: "",
-
+          removestudent: "",
         };
     }
 
@@ -41,10 +41,21 @@ class EditCampusContainer extends Component {
 
         let editCampus = await this.props.editCampus(campus);
 
+
+        // Add and remove students
+        
         this.setState({"addstudent": this.state.addstudent.split(",")});
 
         await this.state.addstudent.forEach((char) => {
           let studier = {id: char, campusId: campus.id};
+          let editStudent = this.props.editStudent(studier);
+        });
+
+        this.setState({"removestudent": this.state.removestudent.split(",")});
+
+        // Known bug: remove works from any campus, even if the student doesn't go there.
+        await this.state.removestudent.forEach((char) => {
+          let studier = {id: char, campusId: null};
           let editStudent = this.props.editStudent(studier);
         });
 

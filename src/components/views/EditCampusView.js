@@ -64,10 +64,17 @@ const EditCampusView = (props) => {
           <br/>
           <br/>
 
-          <label style={{color:'#11153e', fontWeight: 'bold'}}>Add a student by ID: </label>
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>Add students by ID: </label>
           <input type="text" name="addstudent" onChange={(e) => handleChange(e)} />
           <br/>
           <br/>
+
+          <label style={{color:'#11153e', fontWeight: 'bold'}}>Remove students by ID: </label>
+          <input type="text" name="removestudent" onChange={(e) => handleChange(e)} />
+          <br/>
+          <p>Add/Remove Students with comma-seperated lists, e.g. 1,2,3</p>
+          <br/>
+
 
           <Button variant="contained" color="primary" type="submit">
             Submit
