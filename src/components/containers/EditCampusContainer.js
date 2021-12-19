@@ -3,19 +3,20 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import EditCampusView from '../views/EditCampusView';
-import { editCampusThunk } from '../../store/thunks';
+import { editCampusThunk, fetchCampusThunk } from '../../store/thunks';
 
 
 class EditCampusContainer extends Component {
     constructor(props){
         super(props);
+        let toEdit = this.props.fetchCampus(this.props.match.params.id);
         this.state = {
-          name: "",
-          address: "",
-          description: "",
-          students: null,
+          name: toEdit.name,
+          address: toEdit.address,
+          description: toEdit.description,
+          students: toEdit.students,
           redirect: false,
-          redirectId: null
+          redirectId: toEdit.id
         };
     }
 
@@ -67,6 +68,7 @@ class EditCampusContainer extends Component {
 const mapDispatch = (dispatch) => {
     return({
         editCampus: (campus) => dispatch(editCampusThunk(campus)),
+        fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
     })
 }
 
