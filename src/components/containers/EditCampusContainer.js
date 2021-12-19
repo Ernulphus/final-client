@@ -38,7 +38,7 @@ class EditCampusContainer extends Component {
             description: this.state.description,
             imageURL: this.state.imageURL,
         };
-        
+
         let editCampus = await this.props.editCampus(campus);
 
 

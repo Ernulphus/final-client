@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import NewCampusView from '../views/NewCampusView';
-import { addCampusThunk } from '../../store/thunks';
+import { addCampusThunk, editStudentThunk } from '../../store/thunks';
 
 
 class NewCampusContainer extends Component {
@@ -13,7 +13,8 @@ class NewCampusContainer extends Component {
           name: "",
           address: "",
           description: "",
-          students: null,
+          imageURL: "",
+          addstudent: "",
           redirect: false,
           redirectId: null
         };
@@ -31,16 +32,27 @@ class NewCampusContainer extends Component {
         let campus = {
             name: this.state.name,
             address: this.state.address,
-            description: this.state.description
+            description: this.state.description,
+            imageURL: this.state.imageURL
         };
 
         let newCampus = await this.props.addCampus(campus);
+
+        //// Add students ////
+
+        // Split input list into an array of IDs to add
+        this.setState({"addstudent": this.state.addstudent.split(",")});
+
+        // For each ID in the array, change their campus ID to this one
+        await this.state.addstudent.forEach((char) => {
+          let studier = {id: char, campusId: newCampus.id};
+          let editStudent = this.props.editStudent(studier);
+        });
 
         this.setState({
           name: "",
           address: "",
           description: "",
-          students: null,
           redirect: true,
           redirectId: newCampus.id
         });
@@ -66,6 +78,7 @@ class NewCampusContainer extends Component {
 const mapDispatch = (dispatch) => {
     return({
         addCampus: (campus) => dispatch(addCampusThunk(campus)),
+        editStudent: (student) => dispatch(editStudentThunk(student)),
     })
 }
 
