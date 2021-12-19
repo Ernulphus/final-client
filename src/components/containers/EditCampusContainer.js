@@ -38,27 +38,32 @@ class EditCampusContainer extends Component {
             description: this.state.description,
             imageURL: this.state.imageURL,
         };
-
+        
         let editCampus = await this.props.editCampus(campus);
 
 
-        // Add and remove students
-        
+        //// Add and remove students ////
+
+        // Split input list into an array of IDs to add
         this.setState({"addstudent": this.state.addstudent.split(",")});
 
+        // For each ID in the array, change their campus ID to this one
         await this.state.addstudent.forEach((char) => {
           let studier = {id: char, campusId: campus.id};
           let editStudent = this.props.editStudent(studier);
         });
 
+        // Split input list into an array of IDs to remove
         this.setState({"removestudent": this.state.removestudent.split(",")});
 
+        // For each ID in the array, remove their campus ID
         // Known bug: remove works from any campus, even if the student doesn't go there.
         await this.state.removestudent.forEach((char) => {
           let studier = {id: char, campusId: null};
           let editStudent = this.props.editStudent(studier);
         });
 
+        // Reset state after updating
         this.setState({
           name: "",
           address: "",
