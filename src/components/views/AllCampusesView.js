@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Bar from '../views/AppBarView';
 
 const AllCampusesView = (props) => {
-  const {campuses, deleteCampus} = props;
+  const {deleteCampus} = props;
 
   // Ternary operator to display either list of schools or helpful message
   let list = ((props.allCampuses.length)
