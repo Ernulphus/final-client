@@ -1,3 +1,5 @@
-# Starter code for CRUD App
+# CRUD App
 
-## Client 
+## Client  
+  
+Team member: Boaz Kaufman - Ernulphus
