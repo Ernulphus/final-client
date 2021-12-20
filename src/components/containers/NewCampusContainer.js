@@ -46,7 +46,7 @@ class NewCampusContainer extends Component {
         // For each ID in the array, change their campus ID to this one
         await this.state.addstudent.forEach((char) => {
           let studier = {id: char, campusId: newCampus.id};
-          let editStudent = this.props.editStudent(studier);
+          this.props.editStudent(studier);
         });
 
         this.setState({
