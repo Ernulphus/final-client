@@ -5,14 +5,14 @@ const AllStudentsView = (props) => {
   const {students, deleteStudent} = props;
 
   let list = ((students.length)
-    ? (<div>{students.map((student) => {
+    ? (<div class="lists">{students.map((student) => {
       let name = student.firstname + " " + student.lastname;
       return (
-        <div key={student.id}>
-        <Link to={`/student/${student.id}`}>
-          <h1>{name}</h1>
-        </Link>
-        <button onClick={() => deleteStudent(student.id)}>X</button>
+        <div class="namedesc" key={student.id}>
+          <Link class="campuslink" to={`/student/${student.id}`}>
+            {name}
+          </Link>
+          <button onClick={() => deleteStudent(student.id)}>X</button>
         </div>
       );})}</div>)
     : (<p>There are no students.</p>)
@@ -21,10 +21,12 @@ const AllStudentsView = (props) => {
   return (
     <div>
       <Bar/>
+      <div class="campuses">
       {list}
-      <Link to={`/newstudent`}>
-        <button>Add New Student</button>
+      <Link to={`/newstudent`} class="newbutton">
+        Add New Student
       </Link>
+      </div>
     </div>
   );
 };

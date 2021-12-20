@@ -7,25 +7,32 @@ const AllCampusesView = (props) => {
 
   // Ternary operator to display either list of schools or helpful message
   let list = ((props.allCampuses.length)
-    ? (<div>{props.allCampuses.map((campus) => (
+    ? (<div class="lists">{props.allCampuses.map((campus) => (
       <div key={campus.id}>
-        <Link to={`/campus/${campus.id}`}>
-          <h1>{campus.name}</h1>
-        </Link>
+        <div class="namedesc">
+          <Link class="campuslink" to={`/campus/${campus.id}`}>
+            {campus.name}
+          </Link>
+          <button onClick={() => deleteCampus(campus.id)}>X</button>
+        </div>
+        <br />
         <p>{campus.description}</p>
-        <button onClick={() => deleteCampus(campus.id)}>X</button>
+        <br/>
       </div>
     ))}</div>)
-    : (<div>There are no campuses.</div>)
+    : (<div><h1>There are no campuses.</h1></div>)
   )
 
   return (
     <div>
       <Bar/>
+      <div class="campuses">
       {list}
-      <Link to={`/newcampus`}>
-        <button>Add New Campus</button>
+      <br/>
+      <Link to={`/newcampus`} class="newbutton">
+        Add New Campus
       </Link>
+      </div>
     </div>
   );
 };
